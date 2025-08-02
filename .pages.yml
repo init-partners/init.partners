@@ -1,4 +1,4 @@
-collections:
+content:
   - id: 'team'
     path: '.pages/team'
     label: 'Team Members'
