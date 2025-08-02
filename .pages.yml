@@ -1,77 +1,130 @@
 content:
-  - id: 'team'
-    path: '.pages/team'
-    label: 'Team Members'
+  - name: team
+    label: Team Members
+    type: collection
+    path: .pages/team
+    view:
+      fields: [name, role]
     fields:
-      - name: 'name'
-        label: 'Name'
-        type: 'string'
-      - name: 'role'
-        label: 'Role'
-        type: 'string'
-      - name: 'bio'
-        label: 'Bio'
-        type: 'rich-text'
-      - name: 'linkedin'
-        label: 'LinkedIn URL'
-        type: 'string'
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: role
+        label: Role
+        type: string
+        required: true
+      - name: bio
+        label: Bio
+        type: rich-text
+        required: true
+      - name: linkedin
+        label: LinkedIn URL
+        type: string
+        pattern: ^https?://.*linkedin\.com.*
+        help: Please enter a valid LinkedIn URL
 
-  - id: 'expertise'
-    path: '.pages/expertise'
-    label: 'Areas of Expertise'
+  - name: expertise
+    label: Areas of Expertise
+    type: collection
+    path: .pages/expertise
+    view:
+      fields: [title]
     fields:
-      - name: 'title'
-        label: 'Title'
-        type: 'string'
-      - name: 'description'
-        label: 'Description'
-        type: 'rich-text'
-      - name: 'services'
-        label: 'Services'
-        type: 'list'
-        of:
-          type: 'string'
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: rich-text
+        required: true
+      - name: services
+        label: Services
+        type: string
+        list:
+          min: 1
+          max: 10
+        help: List the specific services offered in this area
   
-  - id: 'portfolio'
-    path: '.pages/portfolio'
-    label: 'Portfolio Companies'
+  - name: portfolio
+    label: Portfolio Companies
+    type: collection
+    path: .pages/portfolio
+    view:
+      fields: [name, website]
     fields:
-      - name: 'name'
-        label: 'Company Name'
-        type: 'string'
-      - name: 'logo'
-        label: 'Company Logo'
-        type: 'image'
-      - name: 'website'
-        label: 'Website URL'
-        type: 'string'
-      - name: 'description'
-        label: 'Description'
-        type: 'rich-text'
-      - name: 'images'
-        label: 'Gallery Images'
-        type: 'list'
-        of:
-          type: 'image'
+      - name: name
+        label: Company Name
+        type: string
+        required: true
+      - name: logo
+        label: Company Logo
+        type: image
+        help: Upload company logo (recommended size: 200x200px)
+      - name: website
+        label: Website URL
+        type: string
+        pattern: ^https?://.*
+        required: true
+        help: Company website URL
+      - name: description
+        label: Description
+        type: rich-text
+        required: true
+      - name: images
+        label: Gallery Images
+        type: image
+        list:
+          min: 0
+          max: 5
+        help: Optional gallery images for the portfolio item
 
-  - id: 'blog'
-    path: '.pages/blog'
-    label: 'Blog Posts'
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: .pages/blog
+    view:
+      fields: [title, author, publishedDate]
     fields:
-      - name: 'title'
-        label: 'Title'
-        type: 'string'
-      - name: 'author'
-        label: 'Author'
-        type: 'reference'
-        collection: 'team'
-      - name: 'case_study_for'
-        label: 'Case Study For (Company)'
-        type: 'reference'
-        collection: 'portfolio'
-      - name: 'publishedDate'
-        label: 'Published Date'
-        type: 'date'
-      - name: 'body'
-        label: 'Body'
-        type: 'rich-text'
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: reference
+        collection: team
+        required: true
+      - name: case_study_for
+        label: Case Study For (Company)
+        type: reference
+        collection: portfolio
+        help: Optional - select if this is a case study for a portfolio company
+      - name: publishedDate
+        label: Published Date
+        type: date
+        required: true
+      - name: excerpt
+        label: Excerpt
+        type: text
+        help: Brief summary of the blog post for previews
+      - name: featured
+        label: Featured Post
+        type: boolean
+        default: false
+      - name: tags
+        label: Tags
+        type: string
+        list:
+          min: 0
+          max: 5
+        help: Add relevant tags for categorization
+      - name: body
+        label: Body
+        type: rich-text
+        required: true
+
+media:
+  output: public/images
+  public: /images

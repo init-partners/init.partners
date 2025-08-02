@@ -15,10 +15,10 @@ export interface Expertise {
 
 export interface PortfolioCompany {
   name: string;
-  logo: string;
+  logo?: string;
   website: string;
   description: string;
-  images: string[];
+  images?: string[];
   slug: string;
 }
 
@@ -27,6 +27,9 @@ export interface BlogPost {
   author: string;
   case_study_for?: string;
   publishedDate: string;
+  excerpt?: string;
+  featured?: boolean;
+  tags?: string[];
   body: string;
   slug: string;
 }

@@ -8,7 +8,7 @@ This is a Next.js website for init.partners, a consulting firm that helps early-
 
 ## Technology Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
@@ -35,6 +35,7 @@ npm run lint
 ## Architecture & Code Organization
 
 ### Directory Structure
+
 - `src/app/` - Next.js App Router pages and layouts
 - `src/components/` - Reusable React components
 - `src/lib/` - Utility functions and content loading
@@ -42,26 +43,37 @@ npm run lint
 - `.pages/` - Content management (markdown files)
 
 ### Content Management System
-Content is managed through markdown files in the `.pages` directory:
+
+Content is managed through Pages CMS with markdown files in the `.pages` directory:
+
 - `.pages/team/` - Team member profiles
-- `.pages/expertise/` - Areas of expertise  
+- `.pages/expertise/` - Areas of expertise
 - `.pages/portfolio/` - Portfolio companies
 - `.pages/blog/` - Blog posts and case studies
 
-Content structure is defined in `.pages.yml` and loaded via functions in `src/lib/content.ts`.
+Content structure is defined in `.pages.yml` following Pages CMS format:
+
+- Proper collection definitions with validation
+- Field types include: string, rich-text, image, reference, boolean, date
+- Required fields and validation patterns
+- Media handling in `public/images/`
+- Content loaded via functions in `src/lib/content.ts`
 
 ### Key Components
+
 - `Header.tsx` - Navigation with scroll-based show/hide behavior
 - `ScrollReveal.tsx` - Intersection Observer-based scroll animations
 - `Marquee.tsx` - Horizontal scrolling text ticker
 
 ### Styling Approach
+
 - Uses Tailwind utility classes
 - Custom animations defined in `tailwind.config.ts`
 - Global styles in `src/app/globals.css`
 - Design follows PureVisuals aesthetic (minimalist, modern, animation-rich)
 
 ### Static Export Configuration
+
 - `next.config.mjs` configured with `output: 'export'`
 - Images use `unoptimized: true` for GitHub Pages compatibility
 - GitHub Actions workflow deploys to Pages automatically
@@ -69,6 +81,7 @@ Content structure is defined in `.pages.yml` and loaded via functions in `src/li
 ## Content Updates
 
 To modify content:
+
 1. Edit markdown files in `.pages/` directories
 2. Follow the frontmatter schema defined in `.pages.yml`
 3. Content changes are automatically reflected after rebuild
