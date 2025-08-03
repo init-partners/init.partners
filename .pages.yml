@@ -3,128 +3,177 @@ content:
     label: Team Members
     type: collection
     path: .pages/team
+    filename: "{name}.md"
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [README.md]
     view:
       fields: [name, role]
+      primary: name
+      sort: [name]
+      search: [name, role, bio]
     fields:
       - name: name
         label: Name
         type: string
         required: true
+        description: Full name of the team member
       - name: role
         label: Role
         type: string
         required: true
+        description: Job title or position within the company
       - name: bio
         label: Bio
         type: rich-text
         required: true
+        description: Professional biography and background
       - name: linkedin
         label: LinkedIn URL
         type: string
         pattern: ^https?://.*linkedin\.com.*
-        help: Please enter a valid LinkedIn URL
+        description: Please enter a valid LinkedIn URL
 
   - name: expertise
     label: Areas of Expertise
     type: collection
     path: .pages/expertise
+    filename: "{title}.md"
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [README.md]
     view:
       fields: [title]
+      primary: title
+      sort: [title]
+      default:
+        order: asc
+        sort: title
+      search: [title, description]
     fields:
       - name: title
         label: Title
         type: string
         required: true
+        description: Name of the expertise area (e.g., Engineering, Go-To-Market)
       - name: description
         label: Description
         type: rich-text
         required: true
+        description: Detailed description of this expertise area
       - name: services
         label: Services
         type: string
-        list:
-          min: 1
-          max: 10
-        help: List the specific services offered in this area
-  
+        list: true
+        description: List the specific services offered in this area
+
   - name: portfolio
     label: Portfolio Companies
     type: collection
     path: .pages/portfolio
+    filename: "{name}.md"
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [README.md]
     view:
       fields: [name, website]
+      primary: name
+      sort: [name]
+      default:
+        sort: name
+        order: asc
+      search: [name, description]
     fields:
       - name: name
         label: Company Name
         type: string
         required: true
+        description: Official name of the portfolio company
       - name: logo
         label: Company Logo
         type: image
-        help: Upload company logo (recommended size: 200x200px)
+        description: Upload company logo (recommended size - 200x200px)
       - name: website
         label: Website URL
         type: string
         pattern: ^https?://.*
         required: true
-        help: Company website URL
+        description: Company website URL
       - name: description
         label: Description
         type: rich-text
         required: true
+        description: Brief description of the company and what they do
       - name: images
         label: Gallery Images
         type: image
-        list:
-          min: 0
-          max: 5
-        help: Optional gallery images for the portfolio item
+        list: true
+        description: Optional gallery images for the portfolio item
 
   - name: blog
     label: Blog Posts
     type: collection
     path: .pages/blog
+    filename: "{year}-{month}-{day}-{title}.md"
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [README.md]
     view:
-      fields: [title, author, publishedDate]
+      fields: [title, author, publishedDate, featured]
+      primary: title
+      sort: [publishedDate]
+      search: [title, excerpt, tags]
+      default:
+        sort: publishedDate
+        order: desc
     fields:
       - name: title
         label: Title
         type: string
         required: true
+        description: Blog post title
       - name: author
         label: Author
+        description: Select the team member who authored this post
         type: reference
-        collection: team
         required: true
+        options:
+          collection: team
       - name: case_study_for
         label: Case Study For (Company)
+        description: Optional - select if this is a case study for a portfolio company
         type: reference
-        collection: portfolio
-        help: Optional - select if this is a case study for a portfolio company
+        options:
+          collection: portfolio
       - name: publishedDate
         label: Published Date
         type: date
         required: true
+        description: Date when the blog post was published
       - name: excerpt
         label: Excerpt
         type: text
-        help: Brief summary of the blog post for previews
+        description: Brief summary of the blog post for previews (150-200 characters)
       - name: featured
         label: Featured Post
         type: boolean
         default: false
+        description: Mark as featured to highlight this post
       - name: tags
         label: Tags
         type: string
-        list:
-          min: 0
-          max: 5
-        help: Add relevant tags for categorization
+        list: true
+        description: Add relevant tags for categorization
       - name: body
         label: Body
         type: rich-text
         required: true
+        description: Main content of the blog post
 
 media:
-  output: public/images
-  public: /images
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp, svg]
+    categories: [image]

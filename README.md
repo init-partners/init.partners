@@ -37,12 +37,14 @@ npm run dev
 
 ## Content Management
 
-Content is managed through markdown files in the `.pages` directory:
+Content is managed through Pages CMS with markdown files in the `.pages` directory:
 
 - `.pages/team/` - Team member profiles
 - `.pages/expertise/` - Areas of expertise
 - `.pages/portfolio/` - Portfolio companies
 - `.pages/blog/` - Blog posts and case studies
+
+Media files (images, logos) are stored in `public/images/` and configured through Pages CMS.
 
 ## Building for Production
 

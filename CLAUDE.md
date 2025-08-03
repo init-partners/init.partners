@@ -53,10 +53,12 @@ Content is managed through Pages CMS with markdown files in the `.pages` directo
 
 Content structure is defined in `.pages.yml` following Pages CMS format:
 
-- Proper collection definitions with validation
-- Field types include: string, rich-text, image, reference, boolean, date
-- Required fields and validation patterns
-- Media handling in `public/images/`
+- **Collection Configuration**: filename patterns, format (yaml-frontmatter), subfolder settings
+- **View Settings**: primary fields, sorting (name/date), search fields, filtering options
+- **Field Types**: string, rich-text, image, reference, boolean, date, text
+- **Validation**: required fields, regex patterns, list constraints (min/max)
+- **Media Handling**: proper input/output paths, file extensions, categories
+- **Help Text**: comprehensive guidance for content editors
 - Content loaded via functions in `src/lib/content.ts`
 
 ### Key Components
