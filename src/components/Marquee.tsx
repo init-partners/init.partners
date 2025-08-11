@@ -29,7 +29,7 @@ const Marquee: React.FC<MarqueeProps> = ({ items, className = '' }) => {
         {duplicatedItems.map((item, index) => (
           <span
             key={index}
-            className="inline-block px-12 text-6xl tablet:text-8xl desktop:text-9xl font-black text-neutral-200 tracking-tighter uppercase will-change-transform"
+            className="inline-block px-12 text-6xl tablet:text-8xl desktop:text-9xl font-black text-neutral-200 tracking-tighter uppercase will-change-transform font-mono"
           >
             {item}
           </span>

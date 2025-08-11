@@ -24,21 +24,11 @@ export default function Home() {
           <ScrollReveal>
             <div className="max-w-full">
               <h1 className="hero-text text-hero-mobile tablet:text-hero-tablet desktop:text-hero-desktop font-black text-black leading-none mb-12">
-                INIT.PARTNERS:
-                <br />
-                YOUR PARTNER
-                <br />
-                IN BUILDING
-                <br />
-                <span className="text-neutral-800">ENDURING</span>
-                <br />
-                STARTUPS
+                INIT.PARTNERS
               </h1>
               <div className="max-w-2xl">
                 <p className="text-lg tablet:text-xl font-medium text-black leading-relaxed tracking-wide">
-                  THE JOURNEY OF AN EARLY-STAGE STARTUP IS BOTH EXCITING AND
-                  CHALLENGING. HAVING THE RIGHT PARTNERS CAN MAKE ALL THE
-                  DIFFERENCE.
+                  WE ARE IN IT WITH YOU
                 </p>
               </div>
             </div>
@@ -51,7 +41,7 @@ export default function Home() {
         <div className="container-custom">
           <ScrollReveal>
             <div className="max-w-4xl">
-              <h2 className="text-display tablet:text-display-sm font-black text-black mb-16 tracking-tight uppercase">
+              <h2 className="heading-text text-display tablet:text-display-sm font-black text-black mb-16">
                 WHAT WE DO
               </h2>
               <div className="space-y-8">
@@ -87,7 +77,7 @@ export default function Home() {
       <section id="team" className="py-200 bg-white">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="text-display tablet:text-display-sm font-black text-black mb-24 tracking-tight uppercase">
+            <h2 className="heading-text text-display tablet:text-display-sm font-black text-black mb-24">
               WHO WE ARE
             </h2>
           </ScrollReveal>
@@ -105,7 +95,7 @@ export default function Home() {
                     </span>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-2xl font-black text-black tracking-tight uppercase">
+                    <h3 className="heading-text text-2xl font-black text-black">
                       {member.name}
                     </h3>
                     <p className="text-lg font-medium text-black tracking-wide uppercase">
@@ -134,7 +124,7 @@ export default function Home() {
       <section id="portfolio" className="py-200 bg-neutral-100">
         <div className="container-custom">
           <ScrollReveal>
-            <h2 className="text-display tablet:text-display-sm font-black text-black mb-24 tracking-tight uppercase">
+            <h2 className="heading-text text-display tablet:text-display-sm font-black text-black mb-24">
               OUR WORK
             </h2>
           </ScrollReveal>
@@ -165,7 +155,7 @@ export default function Home() {
                       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-500"></div>
                     </div>
                     <div className="p-8">
-                      <h3 className="text-xl font-black text-black mb-4 tracking-tight uppercase">
+                      <h3 className="heading-text text-xl font-black text-black mb-4">
                         {company.name}
                       </h3>
                       <p className="text-sm font-medium text-black leading-relaxed tracking-wide mb-6">
@@ -194,7 +184,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
             <ScrollReveal>
               <div>
-                <h2 className="text-display-sm font-black text-black mb-12 tracking-tight uppercase">
+                <h2 className="heading-text text-display-sm font-black text-black mb-12">
                   WHO WE PARTNER WITH
                 </h2>
                 <p className="text-lg font-medium text-black leading-relaxed mb-8 tracking-wide">
@@ -221,7 +211,7 @@ export default function Home() {
 
             <ScrollReveal delay={0.2}>
               <div>
-                <h3 className="text-display-sm font-black text-black mb-12 tracking-tight uppercase">
+                <h3 className="heading-text text-display-sm font-black text-black mb-12">
                   OUR PARTNERSHIP MODEL
                 </h3>
                 <p className="text-lg font-medium text-black leading-relaxed mb-8 tracking-wide">
@@ -253,7 +243,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="max-w-4xl">
             <ScrollReveal>
-              <h2 className="text-display tablet:text-display-sm font-black text-white mb-12 tracking-tight uppercase leading-none">
+              <h2 className="heading-text text-display tablet:text-display-sm font-black text-white mb-12 leading-none">
                 READY TO BUILD
                 <br />
                 SOMETHING AMAZING?
@@ -278,7 +268,7 @@ export default function Home() {
       <footer className="py-16 bg-black border-t border-white/10">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-xl font-black text-white mb-4 md:mb-0 tracking-tight">
+            <div className="text-xl font-black text-white mb-4 md:mb-0 tracking-tight font-mono">
               INIT.PARTNERS
             </div>
             <div className="text-sm font-medium text-white/60 tracking-wide uppercase">

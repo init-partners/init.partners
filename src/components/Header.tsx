@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +38,7 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between py-6">
           <motion.div 
-            className="text-xl font-bold text-black tracking-tight"
+            className="text-xl font-black text-black tracking-tight font-mono"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
